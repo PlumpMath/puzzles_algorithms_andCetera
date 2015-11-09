@@ -15,10 +15,10 @@ quick_sort = (rayy) ->
     for i, idx in rayy
         if i < pivot
             less.push i
-            p "less #{less}"
+            c "less #{less}"
         if i >= pivot
             more.push i
-            p "more #{more}"
+            c "more #{more}"
     less_sorted = arguments.callee less or []
     more_sorted = arguments.callee more or []
     # if less_sorted is undefined then less_sorted = []
