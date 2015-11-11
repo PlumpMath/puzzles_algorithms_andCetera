@@ -131,22 +131,6 @@ bubble_sort_004 = (rayy)-> # simple no recursion
         if idx is (rayy.length - 1)
             return rayy
 
-obj = 
-    get_random_string_001: get_random_string_001
-    splice_rayy_into_rayy: splice_rayy_into_rayy
-    _: _
-    c: c
-    shuffle_array: shuffle_array
-    get_random_string: get_random_string
-    get_random_rayy: get_random_rayy
-    bubble_sort_004: bubble_sort_004
-    test_order: test_order
-    get_random_anagram: get_random_anagram
-    is_anagram: is_anagram
-
-module.exports = obj
-
-
 reverse_array_000 = (rayy)->
     idx = 0
     len = rayy.length
@@ -175,10 +159,28 @@ rotate_array_000 = (rayy, n)->
     reverse_array_001(rayy, n, (len - 1))
 
 
+obj = 
+    get_random_string_001: get_random_string_001
+    splice_rayy_into_rayy: splice_rayy_into_rayy
+    _: _
+    c: c
+    shuffle_array: shuffle_array
+    get_random_string: get_random_string
+    get_random_rayy: get_random_rayy
+    bubble_sort_004: bubble_sort_004
+    test_order: test_order
+    get_random_anagram: get_random_anagram
+    is_anagram: is_anagram
+    rotate_array_000: rotate_array_000
+
+module.exports = obj
 
 
 
-rayy = [0 .. 11]
+
+
+
+# rayy = [0 .. 11]
 # rotate_array_000 rayy, 1
 # c "rayy #{rayy}"
 # rotate_array_000 rayy, 1
@@ -186,8 +188,8 @@ rayy = [0 .. 11]
 # rotate_array_000 rayy, 1
 # c "rayy #{rayy}"
 
-rotate_array_000 rayy, 10
-c "rayy #{rayy}"
+# rotate_array_000 rayy, 10
+# c "rayy #{rayy}"
 
 
 
