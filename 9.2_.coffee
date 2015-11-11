@@ -4,7 +4,8 @@
 c "Write a method to sort an array of strings so that all the anagrams are next
 to each other. \n"
 
-
+# not sure how to analyse this for computational cost and complexity.  maybe it 
+# would be a requirement to sort in place
 
 # sort array to make anagrams consecutive records
 sort_for_anas = (rayy)->

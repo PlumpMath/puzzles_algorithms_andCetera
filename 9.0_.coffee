@@ -2,6 +2,8 @@ c = -> console.log.apply console, arguments
 
 allowed_chars= ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+
+
 get_random_in_range = (range) ->
     # get random integer between 0 and (range - 1)
     return Math.floor((Math.random() - 0.00000000001) * (range))
@@ -144,8 +146,59 @@ obj =
 
 module.exports = obj
 
-str = "abcdefg"
 
-x = get_random_anagram str
+reverse_array_000 = (rayy)->
+    idx = 0
+    len = rayy.length
+    while idx < (len / 2)
+        temp = rayy[idx]
+        rayy[idx] = rayy[(len - 1) - idx]
+        rayy[len - idx] = temp
+        idx++
 
-c is_anagram(str, x)
+reverse_array_001 = (rayy, from = 0, to)->
+    delta = to - from
+    idx = 0
+    while idx < (delta / 2)
+        capp = from + idx
+        temp = rayy[capp]
+        rayy[capp] = rayy[to - idx]
+        rayy[to - idx] = temp
+        idx++
+
+
+
+rotate_array_000 = (rayy, n)->
+    len = rayy.length
+    reverse_array_001 rayy, 0, (len - 1)
+    reverse_array_001(rayy, 0, (n - 1))
+    reverse_array_001(rayy, n, (len - 1))
+
+
+
+
+
+rayy = [0 .. 11]
+# rotate_array_000 rayy, 1
+# c "rayy #{rayy}"
+# rotate_array_000 rayy, 1
+# c "rayy #{rayy}"
+# rotate_array_000 rayy, 1
+# c "rayy #{rayy}"
+
+rotate_array_000 rayy, 10
+c "rayy #{rayy}"
+
+
+
+
+# rayy = [0 .. 11]
+# c "rayy #{rayy}"
+# reverse_array_001 rayy, 7, 11
+# c "rayy #{rayy}"
+
+
+
+
+
+
