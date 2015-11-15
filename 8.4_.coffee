@@ -7,8 +7,6 @@ c = -> console.log.apply console, arguments
 
 c "Write a method to compute all permutations of a string."
 
-
-
 factorial_000 = (n)->
     factor = n - 1
     result = n
@@ -16,8 +14,6 @@ factorial_000 = (n)->
         result *= factor
         factor--
     return result
-
-
 
 clone_rayy_000 = (rayy)->
     clone = []

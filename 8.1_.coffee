@@ -21,8 +21,8 @@ fibonacci_of_001 = (n)->
         cursor = k_a + k_b
         k_a = k_b
         k_b = cursor
-        c "cursor #{cursor}"
-    c "end cursor #{cursor}"
+        # c "cursor #{cursor}"
+    # c "end cursor #{cursor} for n #{n}"
     return cursor
 
 
