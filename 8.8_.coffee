@@ -94,16 +94,16 @@ clone_rayy_000 = (rayy)->
     return clone
 
 enumerate_permutations_001 = (rayy)->
-    c "\n"
+    # c "\n"
     if rayy.length is 1
         return [rayy]
     else
         catalogue = []
         for char, idx in rayy
             clone = clone_rayy_000 rayy
-            c "clone #{clone}, rayy #{rayy}"
+            # c "clone #{clone}, rayy #{rayy}"
             clone.splice idx, 1
-            c "clone #{clone}, rayy #{rayy}"
+            # c "clone #{clone}, rayy #{rayy}"
             book = arguments.callee clone
             for rayy_2, idx_2 in book
                 catalogue.push [char].concat(rayy_2)
@@ -128,8 +128,11 @@ for board, idx in enumerated_boards
 
 c "solutions length", solutions.length
 
-c solutions[0]
+# c solutions[0]
 
-c solutions[1]
+# c solutions[1]
+
+for solution in solutions
+    c solution
 
 
