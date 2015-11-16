@@ -1,5 +1,7 @@
 c = -> console.log.apply console, arguments
 
+c3 = (a)-> process.stdout.write a
+
 # c "\n In a certain group of 4096 people, everyone has about 100 acquaintances.  
 # A file has been prepared list all pairs of people who are acquaintances.
 # (The relation is symmetric: If x is acquainted with y, then y is acquainted

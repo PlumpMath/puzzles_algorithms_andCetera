@@ -1,5 +1,7 @@
 c = -> console.log.apply console, arguments
 
+c3 = (a)-> process.stdout.write a
+
 get_random_int_in_range_002 = (upper_bound)->
     return Math.floor(Math.random() * (upper_bound + 1))
 
@@ -139,19 +141,68 @@ traverse_matrix_diagonal = ->
 
 traverse_matrix_diagonal()
 
-c "counter #{counter}"
+c "total relations count #{counter}"
 
-counter_2 = 0
-traverse_whole_matrix = ->
-    for i in [0 .. 4095]
-        for j in [0 .. 4095]
-            if relations_codomain[i][j] is true
-                counter_2++
+# counter_2 = 0
+# traverse_whole_matrix = ->
+#     for i in [0 .. 4095]
+#         for j in [0 .. 4095]
+#             if relations_codomain[i][j] is true
+#                 counter_2++
 
-traverse_whole_matrix()
-c "counter_2 #{counter_2}"
+# traverse_whole_matrix()
+# c "counter_2 #{counter_2}"
 
-c "already_str", already_str
+# c "already_str", already_str
+
+# we still haven't made Knuth's stipulated-as-given file of the base 
+# binary relations.  so we should build that from the matrix, with the 
+# upper diagonal traversal.
+
+# make file of binary relations
+relations_file = []
+for i in [0 .. 4094]
+    for j in [(i + 1) .. 4095]
+        if relations_codomain[i][j] is true
+            relations_file.push [i, j]
+
+c "relations_file.length", relations_file.length
+c "some example relations", relations_file[0], relations_file[3434], relations_file[73737]
+
+# so we have the list of 2-person cliques, now lets say given some
+# 2-person clique we want to find all the 3-person clique supersets 
+# of it.
+
+example = relations_file[139389]
+
+c "example", example
+
+# we find all the people that example[0] is related to and check if 
+# those people are related to example[1],
+# if they are that's a 3-person clique.
+# but listing that k-size clique is going to be the 
+# binomial-coefficient length k choose 2 size
+
+person_a = example[0]
+person_b = example[1]
+three_cliques_example = []
+c "person_a", person_a
+for i, idx in relations_codomain[person_a]
+    # c3 ",  idx #{idx}, i #{i} "
+    if (i is true) and (relations_codomain[person_b][idx] is true)
+        c "BANG BANG!!", person_b, idx
+        three_cliques_example.push [example, [person_a, idx], [person_b, idx]]
+
+        # check if idx is related to person_b
+
+c "three cliques example", three_cliques_example
+
+
+
+
+
+# array of relations
+
 
 
 
