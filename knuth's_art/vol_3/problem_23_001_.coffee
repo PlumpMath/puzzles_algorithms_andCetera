@@ -109,12 +109,15 @@ for i, idx in relations_codomain
     # establish number of relations
     variance = get_random_int_in_range_002(30) - 15
     # make the relations from the reduced population pool
-    for i in [0 .. (99 + variance)]
-        # about 100 relations
-        target_idx = get_random_int_in_range_002(population.length - 1)
-        target = population[target_idx]
-        relations_codomain[idx][target] = true
-        relations_codomain[target][idx] = true
+    roll = 99 + variance
+    diffy = roll - already.length
+    if diffy > 0
+        for i in [0 .. diffy]
+            # about 100 relations
+            target_idx = get_random_int_in_range_002(population.length - 1)
+            target = population[target_idx]
+            relations_codomain[idx][target] = true
+            relations_codomain[target][idx] = true
 
 
 # so if that does what we think it should then we should have about 400,000
