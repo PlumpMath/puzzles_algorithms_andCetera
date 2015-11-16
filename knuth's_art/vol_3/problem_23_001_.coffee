@@ -198,10 +198,46 @@ for i, idx in relations_codomain[person_a]
 c "three cliques example", three_cliques_example
 
 
+# great so that works
+# now we'd like to generalise that routine into a function which 
+# can construct any size k clique from a size (k - 1) clique
+
+# in order to do that it would be nice to have an encapsulated routine
+# to list the population of a clique.
+clique_directory = (clique_rayy)->
+    directory = []
+    for relation in clique_rayy
+        if directory.indexOf(relation[0]) is -1
+            directory.push relation[0]
+        if directory.indexOf(relation[1]) is -1
+            directory.push relation[1]
+    return directory
+
+# test the directory generator
+for clique in three_cliques_example
+    directory = clique_directory clique
+    c "directory", directory
 
 
+# so now, given a directory of size k, where we can assume that it represents
+# a clique of size k.  we want to all the cliques of size (k + 1)
+# and we can improve our test data immensely by running all of our binary relations
+# through the clique_directory function to get tons of 2-cliques.
 
-# array of relations
+# again, the routine: for any given person in the directory, we go through 
+# their column (or equivalently their row), in the relations_codomain matrix
+# checking for true relations.  if the other in the relation is already in the 
+# directory, skip over continue, if not already there, we slip into a 
+# an iteration over that other person's row, to see if they are related to 
+# all of the other people in the directory also.  if they are, this constitutes
+# a (k + 1) clique and gets pushed into our k+1 clique
+
+
+# given a directory of size k, deliver all the k+1 size cliques as an array of 
+# binary relations (arrays), with no redundancies.
+deliver_plus_k_cliques = (directory)->
+
+
 
 
 
