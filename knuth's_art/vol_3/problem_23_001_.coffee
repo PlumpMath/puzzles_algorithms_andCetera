@@ -42,7 +42,7 @@ splice_rayy_into_rayy = (target_rayy, target_idx, projectile_rayy)->
 # matrix or 2d array as a cartesian product of the population.
 # that space is kind of like what in probability is called the sample space
 # here we think of it as the codomain representing the space of possible
-# relations.  the image would be the set of relationss active, some subset
+# relations.  the image would be the set of relations active, some subset
 # of the space of all possible relations.  if we include the reflexive aspect
 # of possible relations (x ~ x), which would be the diagonal in our cartesian 
 # matrix, we have 4096 * 4096 == 16,777,216 possible relations.  Knuth says 
@@ -173,6 +173,16 @@ c "some example relations", relations_file[0], relations_file[3434], relations_f
 # 2-person clique we want to find all the 3-person clique supersets 
 # of it.
 
+# TODO : make normal distribution variance around 100 relations per person
+
+# TODO : test relations file for redundancies
+
+# TODO : test generation of codomain matrix from relations file, 
+# FOLLOWUP test generated codomain matrix for equality against the one used
+# to generate the relations list.  this will verify have invertible function
+# bijective blahblah
+
+
 example = relations_file[139389]
 
 c "example", example
@@ -204,6 +214,7 @@ c "three cliques example", three_cliques_example
 
 # in order to do that it would be nice to have an encapsulated routine
 # to list the population of a clique.
+
 clique_directory = (clique_rayy)->
     directory = []
     for relation in clique_rayy
@@ -218,6 +229,8 @@ for clique in three_cliques_example
     directory = clique_directory clique
     c "directory", directory
 
+
+# TODO implement testing a list of relations purporting to be a clique
 
 # so now, given a directory of size k, where we can assume that it represents
 # a clique of size k.  we want to all the cliques of size (k + 1)
