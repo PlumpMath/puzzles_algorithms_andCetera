@@ -1,5 +1,18 @@
 c = -> console.log.apply console, arguments
 
+c "\n In a certain group of 4096 people, everyone has about 100 acquaintances.  
+A file has been prepared list all pairs of people who are acquaintances.
+(The relation is symmetric: If x is acquainted with y, then y is acquainted
+with x. Therefore the file contains roughly 200,000 entries). \n
+How would you design an algorithm to list all the k-person cliques in 
+this group of people, given k ? 
+\n (A clique is an instance of mutual
+acquaintances. Everyone in the clique is acquainted with everyone else.) 
+\n Assume that there are no cliques of size 25 (or greater), so the total 
+number of cliques cannot be enormous.
+\n
+"
+
 c3 = (a)-> process.stdout.write a
 
 splice_rayy_into_rayy = (target_rayy, target_idx, projectile_rayy)->
