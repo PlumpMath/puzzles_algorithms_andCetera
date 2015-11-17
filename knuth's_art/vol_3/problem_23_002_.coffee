@@ -82,6 +82,20 @@ clique_directory = (clique_rayy)->
     return directory
 
 get_plus_k_cliques = (directory, relations_codomain)->
+
+    rayys_have_set_equality = (rayy_a, rayy_b)->
+        #assumes equal num of elements
+        for i, idx in rayy_a
+            if rayy_b.indexOf(i) is -1
+                return false
+        return true
+
+    collection_has_rayy = (collection, rayy_b)->
+        for rayy_a in collection
+            if rayys_have_set_equality rayy_a, rayy_b
+                return true
+        return false
+
     is_related_to_whole_directory = (target) ->
         for number in directory
             if relations_codomain[target][number] is false
@@ -100,9 +114,10 @@ get_plus_k_cliques = (directory, relations_codomain)->
                     new_seeds.push object_idx
 
     for member in new_seeds
-        clone_dir = clone_rayy directory
-        clone_dir.push member
-        plus_k_cliques.push clone_dir
+        up_dir = clone_rayy directory
+        up_dir.push member
+        if not(collection_has_rayy(plus_k_cliques, up_dir))
+            plus_k_cliques.push up_dir
 
     return plus_k_cliques
 
