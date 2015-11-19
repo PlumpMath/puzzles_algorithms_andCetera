@@ -6,6 +6,8 @@ I'm going to do a repo just for these exercises in pure programming -- meaning d
 
 Puzzles, algorithms, data structures.
 
-For now everything is out of a book called _Cracking the Coding Interview_, but I'll be getting into some other books, and then also looking around online for contests and stuff.  
+Some really fun problems are out a book called _Cracking the Coding Interview_ (in the section with the funny name), but I'll be getting into some other books, and then also looking around online weird hackathon type stuff as well, and whatever else I come across.
 
-I have the Knuth books too, _Art of Computer Programming_, so maybe I'll take a crack at some of the problems in there again.
+
+
+
