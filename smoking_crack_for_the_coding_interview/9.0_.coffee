@@ -59,6 +59,8 @@ get_random_anagram = (str)->
     return strang
 
 is_anagram = (str_a, str_b)->
+    # this fails where elements repeat but not in same cardinality.
+    # aaab is not anagram of aabb 
     if str_a.length isnt str_b.length
         return false
     else
@@ -67,6 +69,17 @@ is_anagram = (str_a, str_b)->
             if rayy_b.indexOf(char) is -1
                 return false
         return true
+
+are_anagrams_000 = (a, b)->
+    rayy_a = a.split ''
+    rayy_b = b.split ''
+    perms_a = enumerate_permutations_001 rayy_a
+    perms_b = enumerate_permutations_001 rayy_b
+
+    for perm in perms_b
+        if rayy_equals(rayy_a, perm)
+            return "YES"
+    return "NO"
 
 
 
