@@ -88,6 +88,12 @@ for key, value of data
 
 
 
+func_000 = ->
+    rayy = input.split('\n')
+    card = rayy.shift()
+    output = func_003(rayy, card)
+    c output
+
 
 
 
@@ -97,4 +103,4 @@ for key, value of data
 # process.stdin.on 'data', (input)->
 #     _input += input
 # process.stdin.on 'end', ->
-#     func_003 _input
+#     func_000 _input
