@@ -88,15 +88,15 @@ for key, value of data
 
 
 
-func_000 = ->
-    rayy = input.split('\n')
-    card = rayy.shift()
-    output = func_003(rayy, card)
-    c output
-
-
-
-
+# func_000 = ->
+#     rayy = input.split('\n')
+#     card = rayy.shift()
+#     output = func_003(rayy, card)
+#     c output
+#
+#
+#
+#
 # process.stdin.resume()
 # process.stdin.setEncoding 'ascii'
 # _input = ''
