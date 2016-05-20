@@ -7,6 +7,9 @@ expected_000 = "004-448-555-583-61"
 S_001 = "0 -         22 1985--324"
 expected_001 = "022-198-53-24"
 
+S_002 = "12  28"
+expected_002 = "12-28"
+
 solution = (s)->
     c = -> console.log.apply console, arguments
     # erase all dashes and spaces
@@ -75,3 +78,6 @@ c 'solution_001', solution_001
 
 c solution "555372654"
 c solution "0 - 22 1985--324"
+
+solution_002 = solution S_002
+c 'solution_001', solution_002
