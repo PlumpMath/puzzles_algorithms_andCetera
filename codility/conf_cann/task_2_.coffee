@@ -35,6 +35,7 @@ solution = (s)->
         last_block = rayy.splice(-2, 2)
         former = mod_clean rayy, []
         final = former.concat [last_block]
+        # c 'final', final
         final2 = for ir in final
             ir.join('')
         final3 = final2.join('-')
@@ -44,7 +45,13 @@ solution = (s)->
         last_block = rayy.splice(-2, 2)
         second_to_last_block = rayy.splice(-2, 2)
         former = mod_clean rayy, []
-        cursor_0 = former.concat [second_to_last_block]
+        # c 'former', former
+
+        # cursor_0 = former.concat [second_to_last_block]
+        if former[0].length > 0
+            cursor_0 = former.concat [second_to_last_block]
+        else
+            cursor_0 = [second_to_last_block]
         cursor_1 = cursor_0.concat [last_block]
         final = for ir in cursor_1
             ir.join ''
