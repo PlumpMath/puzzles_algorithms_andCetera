@@ -10,6 +10,10 @@ test_data_3 = "
 00:50:00,100-000-000\n00:20:00,100-000-000\n00:50:00,200-000-000\n00:20:00,200-000-000\n00:01:07,300-000-000\n00:06:07,400-000-000
 "
 
+test_data_4 = "
+00:04:59,111-111-111\n00:05:00,111-111-111\n00:05:01,111-111-111\n00:59:59,222-222-222
+"
+
 solution = (s) ->
     parse_time = (time_str) ->
         rayy = time_str.split ':'
@@ -44,19 +48,20 @@ solution = (s) ->
     remove_highest = (arq) ->
         highest = {leaders: [], time: 0}
         for key, value of arq
+            # c value.calls
             total_time = total_duration value.calls
             if total_time > highest.time
                 highest.leaders = [value]
-                highest.time = value.time
+                highest.time = total_time
             else if total_time is highest.time
                 highest.leaders.push value
         if highest.leaders.length > 1
-            max = {key: null, value: 0}
+            min = {key: null, value: 0}
             for entry in highest.leaders
-                if entry.parsed_num > max.value
-                    max.value = entry.parsed_num
-                    max.key = entry.key
-            delete arq[max.key]
+                if -(entry.parsed_num) > -(min.value)
+                    min.value = entry.parsed_num
+                    min.key = entry.key
+            delete arq[min.key]
         else
             leader = highest.leaders[0]
             delete arq[leader.key]
@@ -88,7 +93,7 @@ solution = (s) ->
     total = 0
     for key, value of arq2
         for call in value.calls
-            counter = counter + 1
+
             total = total + call.cost
 
     return total
